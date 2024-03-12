@@ -9,6 +9,108 @@ void unirNodos2(vector<vector<char>>& vert, char u, char v) {
    
 }
 
+vector<vector<char>> mostrar(vector<vector<char>> matriz, int n, int m) {
+    cout << "Matriz ingresada:" << endl;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cout << matriz[i][j] << " ";
+        }
+        cout << "\n";
+
+    }
+
+
+    cout << "\n\n";
+
+    return matriz;
+}
+
+
+vector<vector<char>> posicion(vector<vector<char>> matriz, int px, int py, int x, int y) {
+    int loc;
+    string message;
+    cout << "A dondete quieres mover";
+    cout << "1.arriba,2.abajo,3.izquierda,4.derecha";
+    cin >> loc;
+    switch (loc) {
+
+    case 1: {
+        if (py > 0 && matriz[px][py - 1] != 'X')
+        {
+
+            if (matriz[px][py - 1] == 'T')
+            {
+                message = "Has ganado un tesoro";
+                break;
+            }
+            else if (matriz[px][py - 1] == '.') {
+                matriz[px][py - 1];
+                message = "Avanzaste hacia arriba";
+                break;
+            }
+
+        }
+        message = "No puedes pasar por aqui";
+        break;
+    }
+    case 2: {
+        if (py <= y && matriz[px][py + 1] != 'X')
+        {
+            if (matriz[px][py + 1] == 'T')
+            {
+                message = "Has ganado un tesoro";
+                break;
+            }
+            else if (matriz[px][py + 1] == '.') {
+                matriz[px][py + 1];
+                message = "Avanzaste hacia arriba";
+                break;
+            }
+        }
+        message = "No puedes pasar por aqui";
+        break;
+    }
+    case 3: {
+        if (px > 0 && matriz[px - 1][py] != 'X')
+        {
+            if (matriz[px - 1][py] == 'T')
+            {
+                message = "Has ganado un tesoro";
+                break;
+            }
+            else if (matriz[px - 1][py] == '.') {
+                matriz[px - 1][py];
+                message = "Avanzaste hacia arriba";
+                break;
+            }
+        }
+        message = "No puedes pasar por aqui";
+        break;
+
+    }
+    case 4: {
+        if (px < x && matriz[px + 1][py] != 'X')
+        {
+            if (matriz[px + 1][py] == 'T')
+            {
+                message = "Has ganado un tesoro";
+                break;
+            }
+            else if (matriz[px + 1][py] == '.') {
+                matriz[px + 1][py];
+                message = "Avanzaste hacia arriba";
+                break;
+            }
+        }
+        message = "No puedes pasar por aqui";
+        break;
+    }
+    };
+    cout << message;
+    mostrar(matriz, x, y);
+
+    return matriz;
+}
 
 
 
@@ -111,104 +213,6 @@ vector<vector<char>> Eje_2() {
    
 
 
-vector<vector<char>> posicion(vector<vector<char>> matriz, int px, int py, int x, int y) { 
-    int loc;
-    string message; 
-    cout << "A dondete quieres mover";
-    cout << "1.arriba,2.abajo,3.izquierda,4.derecha";
-    cin >> loc; 
-    switch (loc) { 
-
-    case 1: { 
-        if (py>0 && matriz[px][py-1]!='X')  
-        {
-            
-            if (matriz[px][py - 1] == 'T')
-            {
-                message = "Has ganado un tesoro";
-                break; 
-            }
-            else if (matriz[px][py - 1]=='.') {
-                matriz[px][py - 1];
-                message = "Avanzaste hacia arriba"; 
-                break;
-            }
-            
-        }
-        message = "No puedes pasar por aqui"; 
-        break;
-    }
-    case 2: {
-        if (py<=y && matriz[px][py + 1] != 'X')
-        { 
-            if (matriz[px][py + 1] == 'T') 
-            {
-                message = "Has ganado un tesoro"; 
-                break;
-            } 
-            else if (matriz[px][py + 1] == '.') { 
-                matriz[px][py + 1]; 
-                message = "Avanzaste hacia arriba"; 
-                break;
-            }
-        }
-        message = "No puedes pasar por aqui"; 
-        break;
-    }
-    case 3: {
-        if (px>0 && matriz[px - 1][py] != 'X') 
-        {
-            if (matriz[px - 1][py] == 'T') 
-            {
-                message = "Has ganado un tesoro"; 
-                break;
-            }
-            else if (matriz[px - 1][py] == '.') { 
-                matriz[px - 1][py]; 
-                message = "Avanzaste hacia arriba"; 
-                break; 
-            }
-        }
-        message = "No puedes pasar por aqui"; 
-        break;
-
-    }
-    case 4: {
-        if (px < x && matriz[px + 1][py] != 'X') 
-        { 
-            if (matriz[px + 1][py] == 'T') 
-            {
-                message = "Has ganado un tesoro"; 
-                break;
-            }
-            else if (matriz[px + 1][py] == '.') { 
-                matriz[px + 1][py]; 
-                message = "Avanzaste hacia arriba"; 
-                break;
-            }
-        }
-        message = "No puedes pasar por aqui" ;
-        break;
-    }
-    };
-    cout << message;
-    mostrar(matriz, x, y);   
-        
-    return matriz; 
-}
-vector<vector<char>> mostrar(vector<vector<char>> matriz, int n, int m) {
-    cout << "Matriz ingresada:" << endl;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            cout << matriz[i][j] << " ";
-        }
-        cout << "\n";
-
-    }
 
 
-    cout << "\n\n";
-
-    return matriz;
-}
 
